@@ -158,7 +158,7 @@ export const projects = [
       "Cloud Functions",
     ],
     githubUrl:
-      "https://github.com/austin-stanley-hinson", 
+      "https://github.com/austin-stanley-hinson/myLokala", 
   },
 
   {
