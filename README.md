@@ -2,7 +2,7 @@
 
 Modern full-stack and AI-focused portfolio built with Next.js, TypeScript, and Tailwind CSS.
 
-🔗 Live Site: https://your-vercel-link.vercel.app  
+🔗 Live Site: https://www.austinhinson.tech  
 💻 GitHub: https://github.com/austin-stanley-hinson
 
 ---
@@ -70,17 +70,26 @@ The site is built with clean architecture, scalable components, and production-r
 Clone the repository:
 
 ```bash
-git clone https://github.com/austin-stanley-hinson/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/austin-stanley-hinson/austin-portfolio.git
+cd austin-portfolio
+```
 
 Install dependencies:
+
+```bash
 npm install
+```
 
 Run the development server:
+
+```bash
 npm run dev
+```
 
-Open:
-http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000).
 
-Build for Production
+## Build for Production
+
+```bash
 npm run build
+```

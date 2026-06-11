@@ -99,7 +99,8 @@ const Contact = () => {
                   </label>
                   <Input
                     id="email"
-                    name=""
+                    name="email"
+                    type="email"
                     placeholder="lebron@example.com"
                     required
                     className="bg-gray-100"

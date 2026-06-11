@@ -10,12 +10,10 @@ import {
   GitBranch,
   Globe,
   GraduationCap,
-  Layers,
   Layout,
   Mail,
   MapPin,
   Palette,
-  Phone,
   Server,
   Smartphone,
   Terminal,
@@ -26,7 +24,6 @@ import {
   FaGithub,
   FaLinkedin,
   FaLinkedinIn,
-  FaTwitter,
 } from "react-icons/fa";
 
 

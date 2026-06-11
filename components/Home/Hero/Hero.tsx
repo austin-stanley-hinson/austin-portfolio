@@ -7,6 +7,7 @@ import { Download, FolderOpen } from "lucide-react";
 const Hero = () => {
   return (
     <div
+      id="home"
       className="
         relative min-h-screen
         bg-[radial-gradient(circle_476px_at_54.8%_51.5%,rgba(168,229,253,1)_0%,rgba(244,244,254,1)_42.3%,rgba(244,244,254,1)_100.2%)]
@@ -24,7 +25,7 @@ const Hero = () => {
         </div>
         {/* title */}
         <h1 data-aos="fade-up" data-aos-delay="100" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-          <span className="text-purple-600 dark:text-yellow-200"> Hi, I'm Austin Hinson </span>
+          <span className="text-purple-600 dark:text-yellow-200"> Hi, I&apos;m Austin Hinson</span>
         </h1>
         {/* Typewrite effect */}
         <div data-aos="fade-up" data-aos-delay="200" className="text-xl sm:text-2xl md:text-3xl text-black dark:text-white font-semibold mb-4 sm:mb-8 h-12">

@@ -11,10 +11,29 @@ const font = Inter({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.austinhinson.tech"),
   title: "Austin Hinson | Software Engineer",
   description:
     "Computer Science & Applied Mathematics student building scalable systems and AI-powered applications.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Austin Hinson | Software Engineer",
+    description:
+      "Computer Science & Applied Mathematics student building scalable systems and AI-powered applications.",
+    url: "https://www.austinhinson.tech",
+    siteName: "Austin Hinson",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Austin Hinson | Software Engineer",
+    description:
+      "Computer Science & Applied Mathematics student building scalable systems and AI-powered applications.",
+  },
 };
 
 export default function RootLayout({
