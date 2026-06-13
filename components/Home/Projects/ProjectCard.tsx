@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa";
+import { ExternalLink } from "lucide-react";
 
 type Props = {
   title: string;
@@ -9,6 +9,7 @@ type Props = {
   image: string;
   techStack: string[];
   githubUrl?: string;
+  liveUrl?: string;
 };
 
 const ProjectCard = ({
@@ -17,12 +18,13 @@ const ProjectCard = ({
   image,
   techStack,
   githubUrl,
+  liveUrl,
 }: Props) => {
   return (
-    <div className="group relative bg-white dark:bg-gray-800 shadow-md rounded-2xl overflow-hidden">
+    <div className="group relative h-full flex flex-col bg-surface-card dark:bg-navy-elevated border border-hairline dark:border-white/10 rounded-lg overflow-hidden">
 
       {/* Image container */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden border-b border-hairline dark:border-white/10">
         <Image
           src={image}
           alt={title}
@@ -33,12 +35,12 @@ const ProjectCard = ({
       </div>
 
       {/* Main content */}
-      <div className="p-6">
-        <h3 className="text-xl text-black dark:text-white font-semibold mb-2 group-hover:text-blue-500 transition-colors">
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="text-lg text-ink dark:text-on-dark font-medium mb-2 transition-colors group-hover:text-coral">
           {title}
         </h3>
 
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+        <p className="text-warm-muted dark:text-on-dark-soft text-sm mb-4 line-clamp-2">
           {description}
         </p>
 
@@ -47,23 +49,39 @@ const ProjectCard = ({
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="text-xs px-3 py-1 rounded-full bg-indigo-600 text-white font-medium"
+              className="text-xs px-3 py-1 rounded-full bg-surface-soft dark:bg-navy-soft border border-hairline dark:border-white/10 text-warm-muted dark:text-on-dark-soft font-medium"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        {/* GitHub Button Only */}
-        {githubUrl && (
-          <Button asChild variant="outline" size="sm" className="flex-1">
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="w-4 h-4 mr-2" />            </a>
-          </Button>
+        {/* Action buttons */}
+        {(liveUrl || githubUrl) && (
+          <div className="mt-auto flex flex-wrap gap-3">
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 h-9 px-4 rounded-md bg-coral text-white text-sm font-medium transition-colors hover:bg-coral-active w-fit"
+              >
+                <ExternalLink className="w-4 h-4" />
+                View Site
+              </a>
+            )}
+            {githubUrl && (
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 h-9 px-4 rounded-md border border-hairline dark:border-white/15 bg-canvas dark:bg-navy text-ink dark:text-on-dark text-sm font-medium transition-colors hover:bg-surface-soft dark:hover:bg-navy-elevated w-fit"
+              >
+                <FaGithub className="w-4 h-4" />
+                View Code
+              </a>
+            )}
+          </div>
         )}
       </div>
     </div>

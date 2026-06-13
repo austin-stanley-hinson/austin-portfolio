@@ -8,14 +8,14 @@ type Props = {
 
 const SkillCard = ({icon:Icon, name}:Props) => {
   return (
-    <div className = "group relative bg-white dark:bg-purple-950 shadow-md rounded-xl p-4 flex flex-col items-center gap-3 cursor-pointer hover:scale-105 transition-all duration-300">
-      <div className = "w-12 h-12 rounded-lg bg-linear-to-br from-purple-400 to-blue-600 flex items-center justify-center group-hover:to-purple-800 transition-all duration-300">     
+    <div className="group relative bg-surface-card dark:bg-navy-elevated border border-hairline dark:border-white/10 rounded-lg p-4 flex flex-col items-center gap-3">
+      <div className="w-12 h-12 rounded-md bg-canvas dark:bg-navy border border-hairline dark:border-white/10 flex items-center justify-center">
 
-      <Icon className = "w-6 h-6 text-white"/>
+      <Icon className="w-6 h-6 text-ink dark:text-on-dark"/>
 
        </div>
 
-       <span className="text-sm font-medium text-foreground">{name}</span>
+       <span className="text-sm font-medium text-ink dark:text-on-dark">{name}</span>
 
     </div>
   );

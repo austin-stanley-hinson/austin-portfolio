@@ -28,11 +28,14 @@ const Nav = ({openNav}:Props) => {
   }, [])
 
   return (
-<div
-  className={`fixed top-0 left-0 w-full h-[12vh] transition-all duration-200 ${
-    navBg ? "bg-white shadow-md dark:bg-gray-800" : "bg-transparent"
-  } z-50`}
->      <div className="flex items-center h-full justify-between w-[90%] xl:w-[80%] mx-auto">
+    <div
+      className={`fixed top-0 left-0 w-full h-[12vh] transition-all duration-200 ${
+        navBg
+          ? "bg-canvas/90 dark:bg-navy/90 backdrop-blur-sm border-b border-hairline dark:border-white/10"
+          : "bg-transparent"
+      } z-50`}
+    >
+      <div className="flex items-center h-full justify-between w-[90%] xl:w-[80%] mx-auto">
         {/* LOGO */}
         <Logo />
         {/*NavLinks*/}
@@ -42,7 +45,9 @@ const Nav = ({openNav}:Props) => {
               <Link
                 key={index}
                 href={link.href}
-                className="dark:text-white text-black hover:text-yellow-500 dark:hover:text-yellow-200 font-semibold transition-all duration-200"
+                className={`${
+                  navBg ? "text-ink dark:text-on-dark" : "text-on-dark"
+                } hover:text-amber dark:hover:text-amber font-medium text-sm transition-colors duration-200`}
               >
                 <p> {link.name}</p>
               </Link>
@@ -53,22 +58,17 @@ const Nav = ({openNav}:Props) => {
         <div className = "flex items-center space-x-4">
           <a
             href="#_"
-            className="box-border relative z-20 inline-flex items-center justify-center w-auto px-6 sm:px-8 py-3 
-            overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer
-            group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500
-            ease focus:outline-none"
+            className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md bg-coral text-white text-sm font-medium transition-colors hover:bg-coral-active"
           >
-            <span className="relative z-20 flex items-center space-x-2 text-sm">
-              <Download className="w-4 h-4" />
-              <span>Download Resume</span>
-            </span>
+            <Download className="w-4 h-4" />
+            <span>Download Resume</span>
           </a>
 
           {/*Theme Toggler */}
           <ThemeToggler/>
 
           {/*Burger Menu for smaller screens*/}
-          <MenuIcon onClick = {openNav} className = "w-8 h-8 cursor-pointer text-black dark:text-white lg:hidden"/>
+          <MenuIcon onClick = {openNav} className = {`w-8 h-8 cursor-pointer lg:hidden ${navBg ? "text-ink dark:text-on-dark" : "text-on-dark"}`}/>
 
         </div>
       </div>

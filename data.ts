@@ -28,7 +28,7 @@ import {
 
 
 export const stats = [
-  { label: "Years Experience", value: "2+" },
+  { label: "Years Experience", value: "4+" },
   { label: "Systems and Projects Built", value: "15+" },
   { label: "Students Mentored", value: "30+" },
   { label: "Technologies Used", value: "15+" },
@@ -124,10 +124,47 @@ export const footerSocialLinks = [
 
 export const projects = [
   {
+    title: "PulseGrid – Distributed Monitoring Platform",
+    description:
+      "Distributed systems monitoring platform that collects machine metrics from agents, stores time-series data, and surfaces system health through a real-time dashboard.",
+    image: "/images/p1.png",
+    techStack: [
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "Redis",
+      "Kafka",
+      "Next.js",
+      "System Monitoring",
+    ],
+    githubUrl:
+      "https://github.com/austin-stanley-hinson/pulsegrid",
+  },
+
+  {
+    title: "myLokala – Local Rewards & Coupon Platform",
+    description:
+      "Mobile-first rewards platform connecting small local restaurants with nearby customers through coupons, merchant tools, and usage-driven local discovery.",
+    image: "/images/p6.jpg",
+    techStack: [
+      "React Native",
+      "Expo",
+      "Firebase",
+      "Geolocation APIs",
+      "Push Notifications",
+      "Merchant Dashboard",
+      "Mobile App",
+    ],
+    githubUrl:
+      "https://github.com/austin-stanley-hinson/myLokala",
+    liveUrl: "https://www.mylokala.com",
+  },
+
+  {
     title: "Planty – Multi-Source AI Research Agent",
     description:
       "AI-powered research agent that aggregates multi-source web data and orchestrates LLM workflows to generate structured summaries.",
-    image: "/images/p1.jpg",
+    image: "/images/p2.png",
     techStack: [
       "LangChain",
       "LangGraph",
@@ -138,24 +175,6 @@ export const projects = [
     ],
     githubUrl:
       "https://github.com/austin-stanley-hinson/Multi-Source-Deep-Search-Agent-",
-  },
-
-  {
-    title: "Lokala (Location-Based Rewards Platform - In Progress)",
-    description:
-      "Mobile-first rewards platform connecting small local restaurants with nearby customers through location-based coupons, subscription tiers, and usage analytics.",
-    image: "/images/p6.jpg", 
-    techStack: [
-      "React Native",
-      "Expo",
-      "Firebase",
-      "Geolocation APIs",
-      "Push Notifications",
-      "Subscription Billing",
-      "Cloud Functions",
-    ],
-    githubUrl:
-      "https://github.com/austin-stanley-hinson/myLokala", 
   },
 
   {
@@ -175,6 +194,24 @@ export const projects = [
   },
 
   {
+    title: "Portfolio Website",
+    description:
+      "Fully responsive developer portfolio built with modern UI architecture, animated sections, dark mode, and modular component design.",
+    image: "/images/p5.jpg",
+    techStack: [
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Shadcn UI",
+      "AOS Animations",
+      "Dark Mode",
+    ],
+    githubUrl:
+      "https://github.com/austin-stanley-hinson/austin-portfolio",
+    liveUrl: "https://www.austinhinson.tech",
+  },
+
+  {
     title: "Desktop Voice Assistant",
     description:
       "Voice-controlled desktop assistant capable of executing system commands, retrieving information, and automating workflows.",
@@ -187,38 +224,6 @@ export const projects = [
     ],
     githubUrl:
       "https://github.com/austin-stanley-hinson/AI-Desktop-Assistant",
-  },
-
-  {
-    title: "Secure File Sharing Application",
-    description:
-      "Full-stack file sharing platform with authentication, protected routes, and secure upload/download workflows.",
-    image: "/images/p4.jpg",
-    techStack: [
-      "React",
-      "Firebase Auth",
-      "Cloud Storage",
-      "Protected Routes",
-      "Access Control",
-    ],
-    githubUrl:
-      "https://github.com/austin-stanley-hinson",
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "Fully responsive developer portfolio built with modern UI architecture, animation systems, and modular component design.",
-    image: "/images/p5.jpg",
-    techStack: [
-      "Next.js 16",
-      "TypeScript",
-      "Tailwind CSS v4",
-      "Shadcn UI",
-      "AOS Animations",
-      "Dark Mode Theming",
-    ],
-    githubUrl:
-      "https://github.com/austin-stanley-hinson/austin-portfolio",
   },
 ];
 export const skillCategories = [

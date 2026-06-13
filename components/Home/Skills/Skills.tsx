@@ -1,23 +1,26 @@
-import SectionHeading from "@/components/Helper/SectionHeading";
 import { skillCategories } from "@/data";
-import SkillCard from "./SkillCard"; 
+import SkillCard from "./SkillCard";
 import React from "react";
 
 const Skills = () => {
   return (
-    <div id = "skills" className="scroll-mt-24 py-16 bg-gray-100 dark:bg-gray-950">
-      <SectionHeading
-        title_1="Technical"
-        title_2="Skills"
-        description="Technologies I've been working with recently"
-      />
+    <div id = "skills" className="scroll-mt-24 py-24 bg-canvas dark:bg-navy">
+      {/* Section heading (editorial serif, scoped to this section) */}
+      <div className="text-center mb-16 px-6">
+        <h2 className="font-serif font-normal tracking-[-0.02em] text-4xl md:text-5xl text-ink dark:text-on-dark mb-4">
+          Technical <span className="text-coral">Skills</span>
+        </h2>
+        <p className="text-warm-muted dark:text-on-dark-soft max-w-2xl mx-auto">
+          Technologies I&apos;ve been working with recently
+        </p>
+      </div>
 
       <div className="space-y-12 w-[80%] mx-auto">
         {skillCategories.map((category) => {
           return (
             <div key={category.title}>
-              <h3 className="text-xl font-semibold mb-6 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+              <h3 className="text-xl font-medium text-ink dark:text-on-dark mb-6 flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-coral"></span>
                 {category.title}
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
