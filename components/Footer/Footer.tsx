@@ -1,4 +1,5 @@
 import { footerSocialLinks } from "@/data";
+import Image from "next/image";
 import React from "react";
 
 const Footer = () => {
@@ -9,20 +10,13 @@ const Footer = () => {
 
           {/* Wordmark */}
           <div className="flex items-center gap-3 text-on-dark">
-            <svg
-              viewBox="0 0 100 100"
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="10"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <line x1="50" y1="10" x2="50" y2="90" />
-              <line x1="10" y1="50" x2="90" y2="50" />
-              <line x1="21" y1="21" x2="79" y2="79" />
-              <line x1="79" y1="21" x2="21" y2="79" />
-            </svg>
+            <Image
+              src="/images/personal-logo.png"
+              alt="Austin Hinson logo"
+              width={160}
+              height={107}
+              className="h-12 w-auto object-contain"
+            />
             <span className="text-lg font-medium">Austin Hinson</span>
           </div>
 
