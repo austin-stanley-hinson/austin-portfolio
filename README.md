@@ -1,69 +1,63 @@
-# Austin Hinson — Developer Portfolio
+# Austin Hinson - Developer Portfolio
 
-Modern full-stack and AI-focused portfolio built with Next.js, TypeScript, and Tailwind CSS.
+A full-stack and AI-focused portfolio built with Next.js, TypeScript, and Tailwind CSS.
 
-🔗 Live Site: https://www.austinhinson.tech  
-💻 GitHub: https://github.com/austin-stanley-hinson
-
----
+Live Site: https://www.austinhinson.tech
+GitHub: https://github.com/austin-stanley-hinson
 
 ## Overview
 
-This portfolio showcases my work in:
+This portfolio covers my work across full-stack engineering, AI systems, performance-oriented backend design, and systems thinking grounded in applied mathematics.
 
-- Full-stack engineering  
-- AI and machine learning systems  
-- Performance-oriented backend design  
-- Systems thinking grounded in applied mathematics  
-
-The site is built with clean architecture, scalable components, and production-ready UI engineering.
-
----
+The interface uses a warm editorial design language with a dark "growth map" hero that frames the journey as a tree: roots, trunk, branches, and glowing section nodes. The goal is a build that feels personal and a little playful while staying fast and recruiter friendly.
 
 ## Tech Stack
 
-### Framework
-- Next.js (App Router)
-
-### Language
-- TypeScript
-
-### Styling
-- Tailwind CSS  
-- shadcn/ui
-
-### Animations
-- AOS (Animate On Scroll)
-
-### Icons
-- Lucide React  
-- React Icons
-
-### Deployment
-- Vercel
-
----
+- Framework: Next.js 16 (App Router)
+- Language: TypeScript
+- Styling: Tailwind CSS v4 and shadcn/ui
+- Animations: AOS (Animate On Scroll) and lightweight CSS keyframes
+- Icons: Lucide React and React Icons
+- Deployment: Vercel
 
 ## Features
 
-- Default dark mode with theme toggler  
-- Smooth scroll navigation  
-- Fully responsive layout  
-- Dynamic project rendering via centralized `data.ts`  
-- Timeline-style experience section  
-- Contact section with mail integration  
-
----
+- Dark mode with a theme toggler
+- Interactive tree hero with branch-node navigation and hover previews
+- Custom animated cursor that reacts to interactive elements, disabled on touch and reduced-motion
+- "Ask Austin" chat panel with a floating launcher, backed by an `/api/ask` route
+- Smooth scroll navigation and section anchors
+- Fully responsive layout and mobile navigation
+- Project cards driven by a centralized `data.ts`, with live site and source links
+- Timeline-style experience section
+- Contact section with mail integration
 
 ## Featured Projects
 
-- **Planty — Multi-Source AI Research Agent**  
-- **Sign Language Detector & Translator**  
-- **Desktop Voice Assistant**  
-- **Secure File Sharing Application**  
-- **Lokala — Local Rewards & Coupon Platform (In Progress)**  
+- PulseGrid: Distributed Monitoring Platform
+- myLokala: Local Rewards and Coupon Platform
+- Planty: Multi-Source Research Agent
+- Sign Language Detector and Translator
+- Portfolio Website
+- Desktop Voice Assistant
 
----
+## Ask Austin Chat
+
+The chat panel works out of the box with a built-in fallback response, so the page never breaks.
+
+To enable live answers, set an environment variable:
+
+```bash
+ANTHROPIC_API_KEY=your_key_here
+```
+
+Optionally override the default model:
+
+```bash
+ASK_AUSTIN_MODEL=claude-haiku-4-5-20251001
+```
+
+On Vercel, add the same variables under Project Settings and Environment Variables.
 
 ## Getting Started
 
@@ -86,7 +80,7 @@ Run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000.
 
 ## Build for Production
 

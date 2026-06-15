@@ -78,11 +78,11 @@ const AskAustin = () => {
       <button
         onClick={() => setOpen(true)}
         data-cursor="node"
-        aria-label="Ask me anything about Austin"
+        aria-label="Ask me about Austin"
         className="group fixed bottom-6 right-6 z-[1100] inline-flex h-14 items-center gap-2 rounded-full bg-amber px-5 text-sm font-medium text-[#161513] shadow-[0_0_24px_4px_rgba(232,165,90,0.35)] transition-transform duration-200 hover:scale-105"
       >
         <MessageCircle className="h-5 w-5 shrink-0" />
-        <span>Ask me anything</span>
+        <span>Ask me about Austin</span>
       </button>
     );
   }
