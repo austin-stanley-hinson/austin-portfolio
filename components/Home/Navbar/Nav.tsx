@@ -4,7 +4,6 @@ import { Navlinks } from '@/Constant/Constant'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { Download, MenuIcon } from 'lucide-react'
-import ThemeToggler from '@/components/Helper/ThemeToggler'
 
 
 type Props = {
@@ -63,9 +62,6 @@ const Nav = ({openNav}:Props) => {
             <Download className="w-4 h-4" />
             <span>Download Resume</span>
           </a>
-
-          {/*Theme Toggler */}
-          <ThemeToggler/>
 
           {/*Burger Menu for smaller screens*/}
           <MenuIcon onClick = {openNav} className = {`w-8 h-8 cursor-pointer lg:hidden ${navBg ? "text-ink dark:text-on-dark" : "text-on-dark"}`}/>
