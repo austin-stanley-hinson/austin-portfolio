@@ -7,15 +7,38 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 export const ASK_AUSTIN_EVENT = "open-ask-austin";
 
+const SUGGESTIONS = [
+  "What's PulseGrid?",
+  "What is he studying right now?",
+  "What has he been reading?",
+  "Is he open to internships?",
+];
+
+// Turn bare URLs in an answer into links; everything else stays plain text.
+const URL_RE = /(https?:\/\/[^\s]+[^\s.,;:!?)])/g;
+const Linkified = ({ text }: { text: string }) => (
+  <>
+    {text.split(URL_RE).map((part, i) =>
+      i % 2 === 1 ? (
+        <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="ink-link text-seal break-all">
+          {part}
+        </a>
+      ) : (
+        <React.Fragment key={i}>{part}</React.Fragment>
+      )
+    )}
+  </>
+);
+
 const GREETING: Msg = {
   role: "assistant",
   content:
     "Ask me about Austin's work: his projects, what he's studying, or what he's writing about.",
 };
 
-// A floating "Ask about Austin" launcher that opens a chat panel. Answers
-// come from /api/ask, which grounds the model in the grimoire's contents.
-// Other components can open it by dispatching ASK_AUSTIN_EVENT.
+// A floating "Ask me about Austin" launcher that opens a chat panel. Answers
+// stream in from /api/ask, which grounds the model in the grimoire's
+// contents. Other components can open it by dispatching ASK_AUSTIN_EVENT.
 const AskAustin = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([GREETING]);
@@ -42,13 +65,28 @@ const AskAustin = () => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [messages, loading]);
 
-  const send = async () => {
-    const text = input.trim();
+  const send = async (question?: string) => {
+    const text = (question ?? input).trim();
     if (!text || loading) return;
     const next = [...messages, { role: "user" as const, content: text }];
     setMessages(next);
     setInput("");
     setLoading(true);
+
+    // Append to the answer bubble (created on the first chunk) as it streams.
+    let started = false;
+    const appendToAnswer = (chunk: string) => {
+      if (!started) {
+        started = true;
+        setMessages((m) => [...m, { role: "assistant", content: chunk }]);
+        return;
+      }
+      setMessages((m) => {
+        const last = m[m.length - 1];
+        return [...m.slice(0, -1), { ...last, content: last.content + chunk }];
+      });
+    };
+
     try {
       const res = await fetch("/api/ask", {
         method: "POST",
@@ -56,16 +94,20 @@ const AskAustin = () => {
         // The greeting is UI only; the API expects the user to speak first.
         body: JSON.stringify({ messages: next.slice(1) }),
       });
-      const data = await res.json();
-      setMessages((m) => [
-        ...m,
-        { role: "assistant", content: data?.reply || "Something went wrong. Try again." },
-      ]);
+      if (!res.ok || !res.body) throw new Error(`ask failed: ${res.status}`);
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        if (chunk) appendToAnswer(chunk);
+      }
+      if (!started) appendToAnswer("Something went wrong. Try again.");
     } catch {
-      setMessages((m) => [
-        ...m,
-        { role: "assistant", content: "I couldn't reach the server just now. Try again in a moment." },
-      ]);
+      if (!started) {
+        appendToAnswer("I couldn't reach the server just now. Try again in a moment.");
+      }
     } finally {
       setLoading(false);
     }
@@ -118,11 +160,27 @@ const AskAustin = () => {
               </p>
             ) : (
               <p key={i} className="whitespace-pre-wrap text-ink-soft">
-                {m.content}
+                <Linkified text={m.content} />
               </p>
             )
           )}
-          {loading && <p className="italic text-faded">writing…</p>}
+          {messages.length === 1 && !loading && (
+            <div className="flex flex-wrap gap-2 pt-1">
+              {SUGGESTIONS.map((q) => (
+                <button
+                  key={q}
+                  type="button"
+                  onClick={() => send(q)}
+                  className="rounded-full border border-rule bg-page-deep/40 px-3 py-1.5 font-sans text-xs text-ink-soft transition-colors hover:border-seal hover:text-seal"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
+          )}
+          {loading && messages[messages.length - 1]?.role === "user" && (
+            <p className="italic text-faded">writing…</p>
+          )}
         </div>
 
         <form
@@ -137,7 +195,8 @@ const AskAustin = () => {
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="What is PulseGrid?"
+              placeholder="Ask about his projects, reading, or experience…"
+              maxLength={500}
               aria-label="Your question"
               className="flex-1 bg-transparent font-sans text-sm text-ink outline-none placeholder:text-faded"
             />
