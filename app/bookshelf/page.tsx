@@ -7,7 +7,7 @@ import type { ShelfEntry, ShelfLinkKind } from "@/content/types";
 
 export const metadata: Metadata = {
   title: "Bookshelf",
-  description: "Readings, tools, and concepts I'm studying, with my notes on each.",
+  description: "The readings, systems, tools, and concepts I'm learning from, with my notes.",
 };
 
 const LINK_ORDER: ShelfLinkKind[] = ["source", "paper", "wiki", "notes"];
@@ -28,8 +28,10 @@ export default function BookshelfPage() {
         <ShelfPull />
       </h1>
       <p className="mt-3 mb-14 text-ink-soft">
-        Readings, tools, and concepts I&apos;m studying. I learn by writing
-        things down, so wherever I&apos;ve taken notes, they&apos;re linked.
+        Every grimoire is built from other books. These are the readings,
+        systems, tools, and concepts I&apos;m learning from. I understand
+        something best once I can explain it to someone else, so wherever
+        I&apos;ve written notes along the way, they&apos;re linked.
       </p>
 
       <div className="space-y-16">
