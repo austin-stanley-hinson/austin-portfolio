@@ -10,7 +10,7 @@ export const site = {
   // The home page's "Currently, ..." line (and what Ask says I'm learning).
   currentlyLearning: "Computer Networking",
   currently:
-    "I'm studying computer networking to understand what's really happening beneath the distributed systems I build, with my Computer Networks course and a stack of books :)",
+    "I'm learning computer networking from the application layer down to the wire with 'Computer Networking: A Top-Down Approach', the old-fashioned way, no AI :)",
   email: "ashins29@colby.edu",
   github: "https://github.com/austin-stanley-hinson",
   linkedin: "https://linkedin.com/in/hinson-austin",
