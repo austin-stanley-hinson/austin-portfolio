@@ -32,11 +32,15 @@ export const bookshelf: ShelfSection[] = [
             "https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000013385/9780135429334",
         },
         current: true,
+        comment:
+          "Having so much fun learning how end hosts actually talk to each other today: encapsulation, protocols, interfaces, all of it. I plan to build a project that puts every layer to work.",
       },
       {
         title: "The System Design Interview",
         author: "Lewis C. Lin & Shivam P. Patel",
         links: { source: "https://www.amazon.com/System-Design-Interview-2nd/dp/B09559NJKL" },
+        comment:
+          "Loved seeing the infrastructure behind apps I use every day, like Instagram, and the engineering tradeoffs it takes to make them work.",
       },
       {
         title: "Operating Systems: Three Easy Pieces",
@@ -75,6 +79,8 @@ export const bookshelf: ShelfSection[] = [
           source:
             "https://www.pearson.com/en-us/subject-catalog/p/linear-algebra-with-applications-classic-version/P200000006131/9780135162972",
         },
+        comment:
+          "All things matrices!!! And all the places they quietly show up in computing.",
       },
       {
         title: "Introduction to the Probability Theory",
@@ -85,6 +91,8 @@ export const bookshelf: ShelfSection[] = [
         title: "My Search for Ramanujan: How I Learned to Count",
         author: "Ken Ono & Amir D. Aczel",
         links: { source: "https://link.springer.com/book/10.1007/978-3-319-25568-2" },
+        comment:
+          "Easily the best math book that isn't really a math book I've read. Ken is such a good writer, and following his journey made me want to never give up. I won't. Ken outdid every expectation he once had of himself, and I'm going to become someone I'm proud of too.",
       },
     ],
   },
