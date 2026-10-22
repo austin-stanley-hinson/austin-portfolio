@@ -31,8 +31,7 @@ export default function Home() {
         <div className="mt-5 flex flex-col-reverse gap-8 sm:flex-row sm:items-start sm:gap-12">
           <div className="flex-1 space-y-4 text-ink-soft">
             <p>
-              <span className="smallcaps text-seal">currently</span>{" "}
-              I&apos;m studying {site.currentlyLearning}.
+              <span className="smallcaps text-seal">currently,</span> {site.currently}
             </p>
             <p>
               Overall, I&apos;m drawn to {site.interests}.{" "}

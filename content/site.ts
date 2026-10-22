@@ -7,8 +7,10 @@ export const site = {
   interests:
     "distributed systems, system design, performance, and the mathematical thinking behind fast, reliable software",
   status: "Open to summer 2027 internships",
-  // The home page's "Currently I'm studying ..." line.
+  // The home page's "Currently, ..." line (and what Ask says I'm learning).
   currentlyLearning: "Computer Networking",
+  currently:
+    "I'm studying computer networking to understand what's really happening beneath the distributed systems I build, with my Computer Networks course and a stack of books :)",
   email: "ashins29@colby.edu",
   github: "https://github.com/austin-stanley-hinson",
   linkedin: "https://linkedin.com/in/hinson-austin",
