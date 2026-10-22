@@ -7,8 +7,8 @@ export const site = {
   interests:
     "distributed systems, system design, performance, and the mathematical thinking behind fast, reliable software",
   status: "Open to summer 2027 internships",
-  // Shown on the home page unless a bookshelf entry is marked current.
-  currentlyLearning: "Computer Networks",
+  // The home page's "Currently I'm studying ..." line.
+  currentlyLearning: "Computer Networking",
   email: "ashins29@colby.edu",
   github: "https://github.com/austin-stanley-hinson",
   linkedin: "https://linkedin.com/in/hinson-austin",

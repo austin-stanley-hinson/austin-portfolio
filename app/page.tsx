@@ -5,11 +5,10 @@ import Mark from "@/components/Grimoire/Mark";
 import SectionTitle from "@/components/Grimoire/SectionTitle";
 import EntryList from "@/components/Grimoire/EntryList";
 import { DancingGrimoire } from "@/components/Grimoire/HeadingMotion";
-import { getCurrentReading, getProfile } from "@/lib/grimoire";
+import { getProfile } from "@/lib/grimoire";
 
 export default function Home() {
   const { site, education, experience } = getProfile();
-  const current = getCurrentReading();
 
   return (
     <div className="space-y-16 pb-8">
@@ -37,14 +36,7 @@ export default function Home() {
             </p>
             <p>
               <span className="smallcaps text-seal">currently</span>{" "}
-              {current ? (
-                <>
-                  I&apos;m studying <em>{current.title}</em>
-                  {current.author && <> by {current.author}</>}.
-                </>
-              ) : (
-                <>I&apos;m learning {site.currentlyLearning}.</>
-              )}
+              I&apos;m studying {site.currentlyLearning}.
             </p>
             <p>
               Overall, I&apos;m drawn to {site.interests}.{" "}

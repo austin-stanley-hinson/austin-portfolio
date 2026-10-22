@@ -3,7 +3,7 @@ import path from "path";
 import { chapters } from "@/content/chapters";
 import { bookshelf } from "@/content/bookshelf";
 import { education, experience, site } from "@/content/site";
-import type { Chapter, ShelfEntry } from "@/content/types";
+import type { Chapter } from "@/content/types";
 
 // Single read path for all grimoire content. Pages and API routes both go
 // through here, so the source (files today) can change without touching UI.
@@ -49,10 +49,6 @@ export async function getChapterBody(slug: string): Promise<string | null> {
 
 export function getBookshelf() {
   return bookshelf;
-}
-
-export function getCurrentReading(): ShelfEntry | undefined {
-  return bookshelf.flatMap((s) => s.entries).find((e) => e.current);
 }
 
 export function getProfile() {

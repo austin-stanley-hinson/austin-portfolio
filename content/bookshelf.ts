@@ -1,7 +1,8 @@
 import type { ShelfSection } from "./types";
 
 // Readings, tools, and concepts, each linking to where to get it and, once
-// written, to my own notes (Google Docs) under `notes`.
+// written, to my own notes (Google Docs) under `notes`. Computer science
+// first; math and other reading after.
 //
 // Entry shape:
 //   {
@@ -9,7 +10,7 @@ import type { ShelfSection } from "./types";
 //     author: "...",
 //     links: { source: "...", notes: "https://docs.google.com/document/d/..." },
 //     status: "reading" | "read" | "notes-wip",
-//     current: true,   // shown as "currently studying" on the home page
+//     current: true,   // marked "current" on the shelf
 //     comment: "...",
 //   },
 export const bookshelf: ShelfSection[] = [
@@ -39,11 +40,6 @@ export const bookshelf: ShelfSection[] = [
         links: { source: "https://www.amazon.com/System-Design-Interview-2nd/dp/B09559NJKL" },
       },
       {
-        title: "My Search for Ramanujan: How I Learned to Count",
-        author: "Ken Ono & Amir D. Aczel",
-        links: { source: "https://link.springer.com/book/10.1007/978-3-319-25568-2" },
-      },
-      {
         title: "Operating Systems: Three Easy Pieces",
         author: "Remzi H. Arpaci-Dusseau & Andrea C. Arpaci-Dusseau",
         links: { source: "https://pages.cs.wisc.edu/~remzi/OSTEP/" },
@@ -63,6 +59,11 @@ export const bookshelf: ShelfSection[] = [
           source:
             "https://www.pearson.com/en-us/subject-catalog/p/linear-algebra-with-applications-classic-version/P200000006131/9780135162972",
         },
+      },
+      {
+        title: "My Search for Ramanujan: How I Learned to Count",
+        author: "Ken Ono & Amir D. Aczel",
+        links: { source: "https://link.springer.com/book/10.1007/978-3-319-25568-2" },
       },
     ],
   },

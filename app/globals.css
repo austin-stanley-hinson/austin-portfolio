@@ -334,7 +334,15 @@ html{
   animation: shelf-pull 4.5s ease-in-out infinite;
 }
 
+/* Bookshelf: the "current" dot blinks softly */
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+.status-blink { animation: status-blink 2s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
+  .status-blink,
   .grimoire-dance, .cover-left, .cover-right, .foot-left, .foot-right, .sparkle, .quill-move, .quill-ink-1, .quill-ink-2, .shelf-book {
     animation: none;
   }
