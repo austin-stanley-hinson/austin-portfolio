@@ -7,7 +7,7 @@ import Mark from "./Mark";
 const links = [
   { name: "home", href: "/" },
   { name: "bookshelf", href: "/bookshelf" },
-  { name: "chapters", href: "/chapters" },
+  { name: "writeups", href: "/writeups" },
 ];
 
 const SiteHeader = () => {

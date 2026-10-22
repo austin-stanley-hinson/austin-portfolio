@@ -30,10 +30,6 @@ export default function Home() {
         </h2>
         <div className="mt-5 flex flex-col-reverse gap-8 sm:flex-row sm:items-start sm:gap-12">
           <div className="flex-1 space-y-4 text-ink-soft">
-            <p className="flex items-center gap-2 font-sans text-sm text-ink">
-              <span className="h-2 w-2 rounded-full bg-[#5f8a4e]" aria-hidden="true" />
-              {site.status}
-            </p>
             <p>
               <span className="smallcaps text-seal">currently</span>{" "}
               I&apos;m studying {site.currentlyLearning}.
@@ -46,7 +42,7 @@ export default function Home() {
             </p>
             <p>
               This is my notebook: the{" "}
-              <Link href="/chapters" className="ink-link">chapters</Link> are things
+              <Link href="/writeups" className="ink-link">writeups</Link> are things
               I&apos;ve built and what they taught me, and the{" "}
               <Link href="/bookshelf" className="ink-link">bookshelf</Link> holds
               what I&apos;m studying, with my notes.
@@ -54,6 +50,10 @@ export default function Home() {
             <p className="text-ink">
               I&apos;m a {education.degree} double major at {education.school},
               graduating {education.graduation}.
+            </p>
+            <p className="flex items-center gap-2 font-sans text-sm text-ink">
+              <span className="h-2 w-2 rounded-full bg-[#5f8a4e]" aria-hidden="true" />
+              {site.status}
             </p>
           </div>
           <Image

@@ -1,14 +1,14 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { chapters } from "@/content/chapters";
+import { writeups } from "@/content/writeups";
 import { bookshelf } from "@/content/bookshelf";
 import { education, experience, site } from "@/content/site";
-import type { Chapter } from "@/content/types";
+import type { Writeup } from "@/content/types";
 
 // Single read path for all grimoire content. Pages and API routes both go
 // through here, so the source (files today) can change without touching UI.
 
-export type NumberedChapter = Chapter & { number: number; numeral: string };
+export type NumberedWriteup = Writeup & { number: number; numeral: string };
 
 export function toRoman(n: number): string {
   const table: [number, string][] = [
@@ -25,23 +25,23 @@ export function toRoman(n: number): string {
   return out;
 }
 
-export function getChapters(): NumberedChapter[] {
-  return chapters.map((c, i) => ({ ...c, number: i + 1, numeral: toRoman(i + 1) }));
+export function getWriteups(): NumberedWriteup[] {
+  return writeups.map((c, i) => ({ ...c, number: i + 1, numeral: toRoman(i + 1) }));
 }
 
-export function getChapter(slug: string): NumberedChapter | undefined {
-  return getChapters().find((c) => c.slug === slug);
+export function getWriteup(slug: string): NumberedWriteup | undefined {
+  return getWriteups().find((c) => c.slug === slug);
 }
 
-const CHAPTER_DIR = path.join(process.cwd(), "content", "chapters");
+const WRITEUP_DIR = path.join(process.cwd(), "content", "writeups");
 
-// Returns the markdown body for an inscribed chapter, or null if the chapter
+// Returns the markdown body for an inscribed writeup, or null if the writeup
 // is unwritten or its file is missing.
-export async function getChapterBody(slug: string): Promise<string | null> {
-  const chapter = getChapter(slug);
-  if (!chapter || chapter.status !== "inscribed") return null;
+export async function getWriteupBody(slug: string): Promise<string | null> {
+  const writeup = getWriteup(slug);
+  if (!writeup || writeup.status !== "inscribed") return null;
   try {
-    return await fs.readFile(path.join(CHAPTER_DIR, `${slug}.md`), "utf8");
+    return await fs.readFile(path.join(WRITEUP_DIR, `${slug}.md`), "utf8");
   } catch {
     return null;
   }

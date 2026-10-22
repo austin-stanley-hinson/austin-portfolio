@@ -17,7 +17,7 @@ export const site = {
   // Put the PDF in public/ and set this (e.g. "/austin-hinson-resume.pdf")
   // to show a resume link in the footer. Hidden while null.
   resumeUrl: null as string | null,
-  // Update whenever you add a chapter or shelf entry.
+  // Update whenever you add a writeup or shelf entry.
   lastInscribed: "2026-10-22",
 };
 

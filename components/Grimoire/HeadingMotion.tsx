@@ -1,7 +1,7 @@
 import React from "react";
 
 // Small looping animations that sit beside each page's heading, one per
-// page: a dancing grimoire by the home greeting, a quill writing in a book on Chapters,
+// page: a dancing grimoire by the home greeting, a quill writing in a book on Writeups,
 // and a book being pulled from the shelf on Bookshelf. Keyframes live in
 // globals.css and stop under prefers-reduced-motion.
 

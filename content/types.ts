@@ -2,18 +2,18 @@
 // app/api return these same shapes, so swapping the content files for a
 // CMS or database later only means changing lib/grimoire.ts.
 
-export type Chapter = {
+export type Writeup = {
   slug: string;
   title: string;
   // One line shown in the table of contents.
   summary: string;
-  // "inscribed" chapters are published and need content/chapters/<slug>.md.
-  // "being-written" chapters show as blank pages and are not linked.
+  // "inscribed" writeups are published and need content/writeups/<slug>.md.
+  // "being-written" writeups show as blank pages and are not linked.
   status: "inscribed" | "being-written";
   // ISO date (YYYY-MM-DD). Required once inscribed.
   date?: string;
   tags?: string[];
-  // Shown beside the chapter even before it's written (live site, repo).
+  // Shown beside the writeup even before it's written (live site, repo).
   links?: { label: string; href: string }[];
 };
 

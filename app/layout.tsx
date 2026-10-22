@@ -12,7 +12,7 @@ const sans = Inter({
   variable: "--font-inter",
 });
 
-// Display serif for the cover and chapter titles.
+// Display serif for the cover and writeup titles.
 const displaySerif = Cormorant_Garamond({
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
@@ -35,7 +35,7 @@ const codeMono = JetBrains_Mono({
 });
 
 const description =
-  "Austin Hinson's notebook: chapters on what he's building, a bookshelf of what he's learning, and the notes behind both.";
+  "Austin Hinson's notebook: writeups on what he's building, a bookshelf of what he's learning, and the notes behind both.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.austinhinson.tech"),

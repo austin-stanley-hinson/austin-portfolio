@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
-import { formatDate, type NumberedChapter } from "@/lib/grimoire";
+import { formatDate, type NumberedWriteup } from "@/lib/grimoire";
 
-// The table of contents: numbered chapters with dotted leaders. Unwritten
-// chapters aren't linked yet, but still show their summary and any
+// The table of contents: numbered writeups with dotted leaders. Unwritten
+// writeups aren't linked yet, but still show their summary and any
 // live/source links so the project behind them is reachable.
-const ContentsList = ({ chapters }: { chapters: NumberedChapter[] }) => {
+const WriteupList = ({ writeups }: { writeups: NumberedWriteup[] }) => {
   return (
     <ol className="space-y-8">
-      {chapters.map((c) => {
+      {writeups.map((c) => {
         const inscribed = c.status === "inscribed";
         return (
           <li key={c.slug} className="grid grid-cols-[2.75rem_1fr] gap-x-2">
@@ -16,7 +16,7 @@ const ContentsList = ({ chapters }: { chapters: NumberedChapter[] }) => {
             <div>
               <div className="flex items-baseline gap-2">
                 {inscribed ? (
-                  <Link href={`/chapters/${c.slug}`} className="ink-link font-semibold">
+                  <Link href={`/writeups/${c.slug}`} className="ink-link font-semibold">
                     {c.title}
                   </Link>
                 ) : (
@@ -56,4 +56,4 @@ const ContentsList = ({ chapters }: { chapters: NumberedChapter[] }) => {
   );
 };
 
-export default ContentsList;
+export default WriteupList;
