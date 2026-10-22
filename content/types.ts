@@ -32,7 +32,7 @@ export type ShelfEntry = {
 };
 
 export type ShelfSection = {
-  title: "Textbooks & Readings" | "Tools" | "Concepts";
+  title: "Textbooks & Readings" | "Mathematics" | "Tools" | "Concepts";
   entries: ShelfEntry[];
 };
 

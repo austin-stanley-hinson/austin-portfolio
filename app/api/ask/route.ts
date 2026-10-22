@@ -20,7 +20,7 @@ function buildSystemPrompt() {
     "Answer visitors' questions about Austin briefly (2-4 sentences), warmly, and only from the facts below. If something isn't covered, say you don't know and suggest emailing him. Never invent details, dates, metrics, or contact information. Refer to pages by name: home, chapters, bookshelf.",
     "",
     "## Profile",
-    `Studies ${education.degree} at ${education.school}, graduating ${education.graduation}. Coursework: ${education.coursework.join(", ")}. Interested in ${site.interests}. Currently studying ${site.currentlyLearning}. ${site.status}. Email: ${site.email}. GitHub: ${site.github}. LinkedIn: ${site.linkedin}.${site.resumeUrl ? ` Resume: ${site.url}${site.resumeUrl}.` : ""}`,
+    `Double major in ${education.degree} at ${education.school}, graduating ${education.graduation}. Coursework: ${education.coursework.join(", ")}. Interested in ${site.interests}. Currently studying ${site.currentlyLearning}. ${site.status}. Email: ${site.email}. GitHub: ${site.github}. LinkedIn: ${site.linkedin}.${site.resumeUrl ? ` Resume: ${site.url}${site.resumeUrl}.` : ""}`,
     "",
     "## Experience",
     ...experience.map((e) => `- ${e.org}, ${e.title} (${e.period}): ${e.description} [${e.tags.join(", ")}]`),

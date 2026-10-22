@@ -30,9 +30,9 @@ export default function Home() {
         </h2>
         <div className="mt-5 flex flex-col-reverse gap-8 sm:flex-row sm:items-start sm:gap-12">
           <div className="flex-1 space-y-4 text-ink-soft">
-            <p className="text-ink">
-              I&apos;m a {education.degree} student at {education.school},
-              graduating {education.graduation}.
+            <p className="flex items-center gap-2 font-sans text-sm text-ink">
+              <span className="h-2 w-2 rounded-full bg-[#5f8a4e]" aria-hidden="true" />
+              {site.status}
             </p>
             <p>
               <span className="smallcaps text-seal">currently</span>{" "}
@@ -51,9 +51,9 @@ export default function Home() {
               <Link href="/bookshelf" className="ink-link">bookshelf</Link> holds
               what I&apos;m studying, with my notes.
             </p>
-            <p className="inline-flex items-center gap-2 font-sans text-sm text-ink">
-              <span className="h-2 w-2 rounded-full bg-[#5f8a4e]" aria-hidden="true" />
-              {site.status}
+            <p className="text-ink">
+              I&apos;m a {education.degree} double major at {education.school},
+              graduating {education.graduation}.
             </p>
           </div>
           <Image

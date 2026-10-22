@@ -1,8 +1,7 @@
 import type { ShelfSection } from "./types";
 
 // Readings, tools, and concepts, each linking to where to get it and, once
-// written, to my own notes (Google Docs) under `notes`. Computer science
-// first; math and other reading after.
+// written, to my own notes (Google Docs) under `notes`.
 //
 // Entry shape:
 //   {
@@ -45,12 +44,29 @@ export const bookshelf: ShelfSection[] = [
         links: { source: "https://pages.cs.wisc.edu/~remzi/OSTEP/" },
       },
       {
+        title: "Beginning C++ Game Programming",
+        author: "John Horton",
+        links: {
+          source: "https://www.packtpub.com/en-us/product/beginning-c-game-programming-9781835081747",
+        },
+      },
+    ],
+  },
+  {
+    title: "Mathematics",
+    entries: [
+      {
         title: "Mathematical Proofs for Beginners",
         author: "The Math Sorcerer",
         links: {
           source:
             "https://www.amazon.com/Mathematical-Proofs-Beginners-Contrapositive-Contradiction/dp/B0F2N914H5",
         },
+      },
+      {
+        title: "Calculus: An Intuitive and Physical Approach",
+        author: "Morris Kline",
+        links: { source: "https://store.doverpublications.com/products/9780486404530" },
       },
       {
         title: "Linear Algebra with Applications",

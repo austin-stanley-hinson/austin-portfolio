@@ -23,7 +23,7 @@ export const site = {
 
 export const education: Education = {
   school: "Colby College",
-  degree: "Computer Science & Mathematics",
+  degree: "Computer Science and Mathematics",
   graduation: "May 2029",
   coursework: [
     "Data Structures & Algorithms",
