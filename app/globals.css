@@ -4,30 +4,17 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Anthropic / Claude warm-canvas design language tokens (DESIGN.md) */
+/* Grimoire palette: a cream page, warm ink, one red-brown accent for the
+   seal and links. Accent is #a5492f so body-size links pass AA on the page. */
 @theme {
-  --color-canvas: #faf9f5;
-  --color-surface-soft: #f5f0e8;
-  --color-surface-card: #efe9de;
-  --color-cream-strong: #e8e0d2;
-  --color-navy: #181715;
-  --color-navy-elevated: #252320;
-  --color-navy-soft: #1f1e1b;
-  --color-ink: #141413;
-  --color-ink-body: #3d3d3a;
-  --color-ink-strong: #252523;
-  --color-warm-muted: #6c6a64;
-  --color-warm-muted-soft: #8e8b82;
-  --color-hairline: #e6dfd8;
-  --color-hairline-soft: #ebe6df;
-  --color-coral: #cc785c;
-  --color-coral-active: #a9583e;
-  --color-on-dark: #faf9f5;
-  --color-on-dark-soft: #a09d96;
-  --color-teal: #5db8a6;
-  --color-dot-success: #5db872;
-  --color-amber: #e8a55a;
-  --color-moss: #84a06a;
+  --color-page: #f7f2e7;
+  --color-page-deep: #efe7d6;
+  --color-ink: #1d1a16;
+  --color-ink-soft: #4a443b;
+  --color-faded: #7d7466;
+  --color-rule: #ddd3c0;
+  --color-seal: #a5492f;
+  --color-seal-deep: #843820;
 }
 
 html{
@@ -37,8 +24,9 @@ html{
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-serif: var(--font-garamond), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -152,118 +140,203 @@ html{
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-page text-ink font-serif;
+    font-size: 1.1875rem;
+    line-height: 1.65;
+    font-feature-settings: "kern", "liga", "onum";
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-seal) 22%, transparent);
   }
 }
+
 
 /* ============================================================
-   Tree "growth map" hero — bark texture, branch nodes, cursor
+   Grimoire
    ============================================================ */
 
-/* Dark bark / wood-grain background (layered CSS gradients) */
-.hero-bark {
-  background-color: #161513;
-  background-image:
-    radial-gradient(circle at 18% 28%, rgba(232, 165, 90, 0.10), transparent 42%),
-    radial-gradient(circle at 82% 72%, rgba(132, 160, 106, 0.10), transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(204, 120, 92, 0.06), transparent 60%),
-    repeating-linear-gradient(
-      93deg,
-      rgba(255, 255, 255, 0.022) 0px,
-      rgba(255, 255, 255, 0.022) 1px,
-      transparent 1px,
-      transparent 6px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.28) 0px,
-      rgba(0, 0, 0, 0) 4px,
-      rgba(0, 0, 0, 0) 8px,
-      rgba(0, 0, 0, 0.18) 12px
-    );
+/* Small caps labels (chapter numbers, section titles, metadata) */
+.smallcaps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
 }
 
-/* Concentric growth-ring mark (slow breathe) */
-@keyframes ringBreathe {
-  0%, 100% { opacity: 0.45; transform: scale(1); }
-  50%      { opacity: 0.7;  transform: scale(1.015); }
+/* Inline links: ink underline that turns seal-red on hover */
+.ink-link {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 150ms, text-decoration-color 150ms;
 }
-.growth-ring {
-  animation: ringBreathe 9s ease-in-out infinite;
-}
-
-/* Branch node glow pulse */
-@keyframes nodePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 165, 90, 0.45), 0 0 10px 2px rgba(232, 165, 90, 0.35); }
-  50%      { box-shadow: 0 0 0 7px rgba(232, 165, 90, 0), 0 0 14px 3px rgba(132, 160, 106, 0.30); }
-}
-.branch-node-dot {
-  animation: nodePulse 3.4s ease-in-out infinite;
+.ink-link:hover {
+  color: var(--color-seal);
+  text-decoration-color: currentColor;
 }
 
-/* Subtle technical ticker */
-@keyframes tickerScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.ticker-track {
-  animation: tickerScroll 45s linear infinite;
-  will-change: transform;
-}
-
-/* Custom animated cursor */
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 7px;
-  height: 7px;
-  margin: -3.5px 0 0 -3.5px;
-  border-radius: 9999px;
-  background: var(--color-amber);
-  box-shadow: 0 0 10px 2px rgba(232, 165, 90, 0.6);
-  pointer-events: none;
-  z-index: 9999;
-}
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  margin: -18px 0 0 -18px;
-  pointer-events: none;
-  z-index: 9998;
-  will-change: transform;
-}
-.cursor-ring__inner {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 9999px;
-  border: 1.5px solid rgba(232, 165, 90, 0.6);
-  box-shadow: 0 0 16px 2px rgba(232, 165, 90, 0.22);
-  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-}
-.cursor-ring--active .cursor-ring__inner {
-  transform: scale(1.9);
-  border-color: rgba(132, 160, 106, 0.85);
-  box-shadow: 0 0 26px 6px rgba(132, 160, 106, 0.3);
-}
-body.cursor-hidden,
-body.cursor-hidden a,
-body.cursor-hidden button,
-body.cursor-hidden [data-cursor],
-body.cursor-hidden input,
-body.cursor-hidden textarea {
-  cursor: none;
+/* Dotted leader between a contents title and its date */
+.leader {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 1px dotted var(--color-faded);
+  transform: translateY(-0.35em);
+  opacity: 0.6;
 }
 
-/* Respect reduced-motion: kill the decorative loops */
+/* Section divider: a rule with a small seal mark in the middle */
+.flourish {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--color-seal);
+}
+.flourish::before,
+.flourish::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-rule);
+}
+
+/* Chapter body typography for rendered markdown */
+.chapter-body > * + * { margin-top: 1.1em; }
+.chapter-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  line-height: 1.2;
+  margin-top: 2.2em;
+}
+.chapter-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.8em;
+}
+.chapter-body > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.82;
+  padding: 0.06em 0.1em 0 0;
+  color: var(--color-seal);
+}
+.chapter-body a { color: var(--color-seal); text-decoration: underline; text-underline-offset: 0.2em; }
+.chapter-body ul { list-style: disc; padding-left: 1.4em; }
+.chapter-body ol { list-style: decimal; padding-left: 1.4em; }
+.chapter-body blockquote {
+  border-left: 2px solid var(--color-seal);
+  padding-left: 1em;
+  color: var(--color-ink-soft);
+  font-style: italic;
+}
+.chapter-body code {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  background: var(--color-page-deep);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.chapter-body pre {
+  font-size: 0.95rem;
+  background: var(--color-page-deep);
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+  padding: 1em 1.2em;
+  overflow-x: auto;
+}
+.chapter-body pre code { background: none; padding: 0; }
+.chapter-body img { border: 1px solid var(--color-rule); border-radius: 4px; }
+.chapter-body hr { border: 0; border-top: 1px solid var(--color-rule); margin: 2.5em 0; }
+.chapter-body table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+.chapter-body th, .chapter-body td { border-bottom: 1px solid var(--color-rule); padding: 0.4em 0.6em; text-align: left; }
+
+/* ---- Heading animations (components/Grimoire/HeadingMotion.tsx) ---- */
+
+/* Home: a little grimoire that bounces, sways, flaps its covers, and
+   kicks its feet while sparkles twinkle around it */
+@keyframes grimoire-dance {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(-7deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-3px) rotate(7deg); }
+}
+@keyframes flap {
+  0%, 50%, 100% { transform: scaleX(1); }
+  25%, 75% { transform: scaleX(0.72); }
+}
+@keyframes kick {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-20deg); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 1; transform: scale(1); }
+}
+.grimoire-dance {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: grimoire-dance 1.1s ease-in-out infinite;
+}
+.cover-left, .cover-right {
+  transform-box: view-box;
+  transform-origin: 28px 26px;
+}
+.cover-left, .cover-right { animation: flap 1.1s ease-in-out infinite; }
+.foot-left, .foot-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+}
+.foot-left { animation: kick 1.1s ease-in-out infinite; }
+.foot-right { animation: kick 1.1s ease-in-out infinite 0.55s; }
+.sparkle {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: twinkle 1.6s ease-in-out infinite;
+}
+.sparkle-2 { animation-delay: 0.5s; }
+.sparkle-3 { animation-delay: 1s; }
+
+/* Chapters: the quill writes two lines, lifts, and starts again */
+@keyframes quill-move {
+  0%   { transform: translate(0px, 0px); }
+  40%  { transform: translate(16px, 0px); }
+  45%  { transform: translate(0px, 7px); }
+  80%  { transform: translate(12px, 7px); }
+  90%  { transform: translate(14px, 2px); }
+  100% { transform: translate(0px, 0px); }
+}
+@keyframes ink-1 {
+  0%   { stroke-dashoffset: 1; opacity: 1; }
+  40%  { stroke-dashoffset: 0; }
+  90%  { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes ink-2 {
+  0%, 45% { stroke-dashoffset: 1; opacity: 1; }
+  80%  { stroke-dashoffset: 0; }
+  90%  { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.quill-move { animation: quill-move 4s ease-in-out infinite; }
+.quill-ink-1, .quill-ink-2 { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.quill-ink-1 { animation: ink-1 4s linear infinite; }
+.quill-ink-2 { animation: ink-2 4s linear infinite; }
+
+/* Bookshelf: one book slides up off the shelf, tilts, and goes back */
+@keyframes shelf-pull {
+  0%, 15%, 85%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-7px) rotate(0deg); }
+  50%, 65% { transform: translateY(-7px) rotate(-10deg); }
+}
+.shelf-book {
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+  animation: shelf-pull 4.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .growth-ring,
-  .branch-node-dot,
-  .ticker-track {
-    animation: none !important;
+  .grimoire-dance, .cover-left, .cover-right, .foot-left, .foot-right, .sparkle, .quill-move, .quill-ink-1, .quill-ink-2, .shelf-book {
+    animation: none;
   }
+  .quill-ink-1, .quill-ink-2 { stroke-dashoffset: 0; }
 }
