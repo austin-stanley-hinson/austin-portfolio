@@ -77,6 +77,11 @@ export const bookshelf: ShelfSection[] = [
         },
       },
       {
+        title: "Introduction to the Probability Theory",
+        author: "Taha Sochi",
+        links: { source: "https://www.amazon.com/Introduction-Probability-Theory-Taha-Sochi/dp/B0BV1XJ7KC" },
+      },
+      {
         title: "My Search for Ramanujan: How I Learned to Count",
         author: "Ken Ono & Amir D. Aczel",
         links: { source: "https://link.springer.com/book/10.1007/978-3-319-25568-2" },
