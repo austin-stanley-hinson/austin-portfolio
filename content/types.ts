@@ -37,7 +37,8 @@ export type ShelfSection = {
 };
 
 export type ExperienceEntry = {
-  period: string;
+  // Omit when the dates aren't settled; the entry renders without them.
+  period?: string;
   title: string;
   org: string;
   description: string;

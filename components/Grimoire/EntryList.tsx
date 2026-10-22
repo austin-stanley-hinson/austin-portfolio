@@ -13,7 +13,7 @@ const EntryList = ({ entries }: { entries: ExperienceEntry[] }) => {
               <span className="text-faded"> · </span>
               <span>{e.title}</span>
             </h3>
-            <span className="font-sans text-xs text-faded">{e.period}</span>
+            {e.period && <span className="font-sans text-xs text-faded">{e.period}</span>}
           </div>
           <p className="mt-1 text-base text-ink-soft">{e.description}</p>
           <div className="mt-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 font-sans text-xs">

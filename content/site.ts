@@ -48,6 +48,14 @@ export const experience: ExperienceEntry[] = [
     links: [{ label: "mylokala.com", href: "https://www.mylokala.com" }],
   },
   {
+    title: "Software Engineer",
+    org: "MuleMart",
+    description:
+      "Built mulemart.com, a campus marketplace where 400+ Colby students buy, sell, and donate items. Designed a Flask and PostgreSQL REST API with S3 presigned URLs for media and SQLAlchemy queries tuned to remove N+1 bottlenecks, added semantic search with SentenceTransformers embeddings, and reached 95% test coverage across 8 suites in GitHub Actions CI.",
+    tags: ["Flask", "PostgreSQL", "AWS S3", "PyTorch", "GitHub Actions"],
+    links: [{ label: "mulemart.com", href: "https://www.mulemart.com" }],
+  },
+  {
     period: "Summer 2026",
     title: "Machine Learning Research Intern",
     org: "CEAMLS",

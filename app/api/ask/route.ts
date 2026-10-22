@@ -23,7 +23,7 @@ function buildSystemPrompt() {
     `Double major in ${education.degree} at ${education.school}, graduating ${education.graduation}. Coursework: ${education.coursework.join(", ")}. Interested in ${site.interests}. Currently studying ${site.currentlyLearning}. ${site.status}. Email: ${site.email}. GitHub: ${site.github}. LinkedIn: ${site.linkedin}.${site.resumeUrl ? ` Resume: ${site.url}${site.resumeUrl}.` : ""}`,
     "",
     "## Experience",
-    ...experience.map((e) => `- ${e.org}, ${e.title} (${e.period}): ${e.description} [${e.tags.join(", ")}]`),
+    ...experience.map((e) => `- ${e.org}, ${e.title}${e.period ? ` (${e.period})` : ""}: ${e.description} [${e.tags.join(", ")}]`),
     "",
     "## Writeups (one per project)",
     ...writeups.map(
