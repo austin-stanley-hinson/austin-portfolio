@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Nea Onnim No Sua A, Ohu (Adinkra). Geometry: Pablo Busatto, Wikimedia Commons, CC BY-SA 4.0 -->
+  <rect width="64" height="64" rx="14" fill="#a5492f"/>
+  <g transform="translate(12 12) scale(0.10256)" fill="none" stroke="#f7f2e7" stroke-width="34" stroke-miterlimit="10">
+    <g stroke-linecap="square">
+      <rect x="15" y="135" width="360" height="120"/>
+      <path d="M255 15 V375 M135 15 V375 M195 15 V135 M195 255 V375 M75 135 V255 M315 135 V255 M135 195 H255"/>
+      <path d="M255 15 H375 M135 15 H15 M135 375 H15 M255 375 H375"/>
+    </g>
+    <path d="M255 75 H360 M135 315 H30 M255 315 H360 M30 75 H135"/>
+  </g>
+</svg>

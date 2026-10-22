@@ -1,43 +1,53 @@
 import type { Metadata } from "next";
-import {Inter, Cormorant_Garamond, JetBrains_Mono} from "next/font/google";
+import { Inter, Cormorant_Garamond, EB_Garamond, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Provider from "@/components/HOC/Provider";
-import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
-import Footer from "@/components/Footer/Footer";
-import ScrollToTop from "@/components/Helper/ScrollToTop";
-import CustomCursor from "@/components/Helper/CustomCursor";
-import AskAustin from "@/components/Home/AskAustin/AskAustin";
+import SiteHeader from "@/components/Grimoire/SiteHeader";
+import SiteFooter from "@/components/Grimoire/SiteFooter";
+import AskAustin from "@/components/Grimoire/AskAustin";
 
-const font = Inter({
-  weight: ["100", "200","300", "400","500", "600","700", "800","900"],
+// UI sans for nav and metadata.
+const sans = Inter({
+  weight: ["400", "500"],
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-// Display serif (Copernicus / Tiempos substitute per DESIGN.md) + code mono.
+// Display serif for the cover and writeup titles.
 const displaySerif = Cormorant_Garamond({
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-cormorant",
 });
 
+// Body serif; EB Garamond carries real small caps and old-style figures.
+const bodySerif = EB_Garamond({
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-garamond",
+});
+
 const codeMono = JetBrains_Mono({
-  weight: ["400", "500"],
+  weight: ["400"],
   subsets: ["latin"],
   variable: "--font-jetbrains",
 });
 
+const description =
+  "Austin Hinson's notebook: writeups on what he's building, a bookshelf of what he's learning, and the notes behind both.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.austinhinson.tech"),
-  title: "Austin Hinson | Software Engineer",
-  description:
-    "Computer Science & Applied Mathematics student building scalable systems and AI-powered applications.",
-  alternates: {
-    canonical: "/",
+  title: {
+    default: "Austin Hinson",
+    template: "%s · Austin Hinson",
   },
+  description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Austin Hinson | Software Engineer",
-    description:
-      "Computer Science & Applied Mathematics student building scalable systems and AI-powered applications.",
+    title: "Austin Hinson",
+    description,
     url: "https://www.austinhinson.tech",
     siteName: "Austin Hinson",
     type: "website",
@@ -45,9 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Austin Hinson | Software Engineer",
-    description:
-      "Computer Science & Applied Mathematics student building scalable systems and AI-powered applications.",
+    title: "Austin Hinson",
+    description,
   },
 };
 
@@ -57,18 +66,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={`${font.className} ${displaySerif.variable} ${codeMono.variable} antialiased`}
+        className={`${sans.variable} ${displaySerif.variable} ${bodySerif.variable} ${codeMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Provider>
-        <CustomCursor/>
-        <AskAustin/>
-        <ResponsiveNav/>
-        {children}
-        <Footer/>
-        <ScrollToTop/>
-        </Provider>
+        <SiteHeader />
+        <main className="mx-auto w-full max-w-[60rem] flex-1 px-6 sm:px-12">{children}</main>
+        <SiteFooter />
+        <AskAustin />
       </body>
     </html>
   );
