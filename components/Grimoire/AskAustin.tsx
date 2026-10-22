@@ -94,6 +94,13 @@ const AskAustin = () => {
         // The greeting is UI only; the API expects the user to speak first.
         body: JSON.stringify({ messages: next.slice(1) }),
       });
+      // The Vercel Firewall rate-limits /api/ask per visitor and answers 429.
+      if (res.status === 429) {
+        appendToAnswer(
+          "You're asking faster than I can keep up. Give it a minute and try again, or email Austin directly."
+        );
+        return;
+      }
       if (!res.ok || !res.body) throw new Error(`ask failed: ${res.status}`);
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
