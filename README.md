@@ -52,7 +52,7 @@ Entries marked `"being-written"` show in the list with their summary and links, 
 
 **Everything else** (experience, the "currently" line, internship status, resume link) lives in `content/site.ts`.
 
-After any change, bump `lastInscribed` in `content/site.ts`. It's the date shown in the footer.
+After any change, bump `lastUpdated` in `content/site.ts`. It's the date shown in the footer.
 
 ## API
 

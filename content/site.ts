@@ -20,7 +20,7 @@ export const site = {
   // to show a resume link in the footer. Hidden while null.
   resumeUrl: null as string | null,
   // Update whenever you add a writeup or shelf entry.
-  lastInscribed: "2026-10-22",
+  lastUpdated: "2026-10-22",
 };
 
 export const education: Education = {

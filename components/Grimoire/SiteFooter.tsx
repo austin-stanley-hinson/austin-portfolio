@@ -4,12 +4,12 @@ import { Mail } from "lucide-react";
 import { site } from "@/content/site";
 import Mark from "./Mark";
 
-const formatInscribed = (iso: string) => {
+const formatUpdated = (iso: string) => {
   const [y, m, d] = iso.split("-");
   return `${m}/${d}/${y}`;
 };
 
-// Social links and the resume in full ink, the last-inscribed date beneath,
+// Social links and the resume in full ink, the last-updated date beneath,
 // and a thin seal-colored bar pinned to the bottom of the window.
 const SiteFooter = () => {
   const socials = [
@@ -49,7 +49,7 @@ const SiteFooter = () => {
           )}
         </div>
         <p className="mt-4 font-sans text-base text-ink">
-          last inscribed {formatInscribed(site.lastInscribed)}
+          last updated {formatUpdated(site.lastUpdated)}
         </p>
         <p className="mt-6 font-sans text-xs text-faded">
           Seal: <em className="font-serif text-sm">Nea Onnim No Sua A, Ohu</em>, after{" "}
