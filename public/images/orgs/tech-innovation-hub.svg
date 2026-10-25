@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Tech Innovation Hub">
+  <rect width="96" height="96" rx="20" fill="#a5492f"/>
+  <g stroke="#f7f2e7" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M48 48 L48 22 M48 48 L70.5 61 M48 48 L25.5 61"/>
+    <path d="M48 22 L70.5 61 L25.5 61 Z" stroke-opacity="0.45" stroke-width="3"/>
+  </g>
+  <g fill="#f7f2e7">
+    <circle cx="48" cy="48" r="10"/>
+    <circle cx="48" cy="22" r="6"/>
+    <circle cx="70.5" cy="61" r="6"/>
+    <circle cx="25.5" cy="61" r="6"/>
+  </g>
+  <circle cx="48" cy="48" r="4" fill="#a5492f"/>
+</svg>

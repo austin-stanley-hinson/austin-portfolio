@@ -41,6 +41,8 @@ export type ExperienceEntry = {
   period?: string;
   title: string;
   org: string;
+  // Square org logo under public/, shown beside the entry.
+  logo?: string;
   description: string;
   tags: string[];
   // Evidence shown next to the entry (live site, repo, paper).

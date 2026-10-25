@@ -20,7 +20,7 @@ export const site = {
   // to show a resume link in the footer. Hidden while null.
   resumeUrl: null as string | null,
   // Update whenever you add a writeup or shelf entry.
-  lastUpdated: "2026-10-22",
+  lastUpdated: "2026-10-24",
 };
 
 export const education: Education = {
@@ -44,6 +44,7 @@ export const experience: ExperienceEntry[] = [
     period: "Jan 2026 – Present",
     title: "Co-Founder & Tech Lead",
     org: "Lokala LLC",
+    logo: "/images/orgs/lokala.png",
     description:
       "Led the design and development of mylokala.com, a coupon platform connecting Waterville-area shoppers with nearby businesses. Built the merchant dashboard and Stripe Connect payouts with idempotent webhook workflows. Grew to 200+ users and 30+ businesses, partnered with the Mid-Maine Chamber of Commerce, and raised $5,000 in seed funding.",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Stripe Connect"],
@@ -52,6 +53,7 @@ export const experience: ExperienceEntry[] = [
   {
     title: "Software Engineer",
     org: "MuleMart",
+    logo: "/images/orgs/mulemart.png",
     description:
       "Built mulemart.com, a campus marketplace where 400+ Colby students buy, sell, and donate items. Designed a Flask and PostgreSQL REST API with S3 presigned URLs for media and SQLAlchemy queries tuned to remove N+1 bottlenecks, added semantic search with SentenceTransformers embeddings, and reached 95% test coverage across 8 suites in GitHub Actions CI.",
     tags: ["Flask", "PostgreSQL", "AWS S3", "PyTorch", "GitHub Actions"],
@@ -61,6 +63,7 @@ export const experience: ExperienceEntry[] = [
     period: "Summer 2026",
     title: "Machine Learning Research Intern",
     org: "CEAMLS",
+    logo: "/images/orgs/ceamls.png",
     description:
       "Built an ML pipeline to identify Alzheimer's drug candidates across 5 therapeutic targets. Curated 25,000+ molecular compounds and trained classical models reaching a 0.904 F1 score on blood-brain barrier permeability, then extended the work with graph neural networks and molecular docking. Selected to present at NSEA 2026.",
     tags: ["Machine Learning", "Graph Neural Networks", "Molecular Docking"],
@@ -69,6 +72,7 @@ export const experience: ExperienceEntry[] = [
     period: "Feb – Apr 2026",
     title: "Software Engineering Fellow",
     org: "Google",
+    logo: "/images/orgs/google.png",
     description:
       "Selected for G-SWEP, a 10-week Google × BASTA fellowship with 1:1 mentorship from a Google software engineer. Built Planty, a research assistant that orchestrates 3+ live data sources into source-grounded answers, with retries, rate-limit handling, and defensive parsing for partial failures.",
     tags: ["Python", "LLM Orchestration", "APIs"],
@@ -83,6 +87,7 @@ export const experience: ExperienceEntry[] = [
     period: "Sept 2025 – Present",
     title: "Teaching Assistant",
     org: "Colby College",
+    logo: "/images/orgs/colby.png",
     description:
       "TA for Computational Science (Python) and Data Structures & Algorithms (Java). Assisted 50+ Computational Science students in learning Python, resolving coding issues, and completing their projects.",
     tags: ["Python", "Java", "Data Structures & Algorithms", "Teaching"],
@@ -91,6 +96,7 @@ export const experience: ExperienceEntry[] = [
     period: "Sept 2025 – Aug 2026",
     title: "Lead Mentor & Co-Founder",
     org: "Tech Innovation Hub",
+    logo: "/images/orgs/tech-innovation-hub.svg",
     description:
       "Designed hands-on programming challenges for 45+ students with student developers and mentors. Led fundraising that raised $10,000 for 10 laptops for underrepresented students.",
     tags: ["Mentorship", "Curriculum", "Fundraising"],
