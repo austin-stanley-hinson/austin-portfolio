@@ -8,7 +8,7 @@ import { DancingGrimoire } from "@/components/Grimoire/HeadingMotion";
 import { getProfile } from "@/lib/grimoire";
 
 export default function Home() {
-  const { site, education, experience } = getProfile();
+  const { site, experience } = getProfile();
 
   return (
     <div className="space-y-16 pb-8">
@@ -45,10 +45,6 @@ export default function Home() {
               I&apos;ve built and what they taught me, and the{" "}
               <Link href="/bookshelf" className="ink-link">bookshelf</Link> holds
               what I&apos;m studying, with my notes.
-            </p>
-            <p className="text-ink">
-              I&apos;m a {education.degree} double major at {education.school},
-              graduating {education.graduation}.
             </p>
             <p className="flex items-center gap-2 font-sans text-sm text-ink">
               <span className="h-2 w-2 rounded-full bg-[#5f8a4e]" aria-hidden="true" />
