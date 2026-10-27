@@ -3,6 +3,7 @@ import path from "path";
 import { writeups } from "@/content/writeups";
 import { bookshelf } from "@/content/bookshelf";
 import { education, experience, site } from "@/content/site";
+import { notes, projects } from "@/content/knowledge";
 import type { Writeup } from "@/content/types";
 
 // Single read path for all grimoire content. Pages and API routes both go
@@ -53,6 +54,11 @@ export function getBookshelf() {
 
 export function getProfile() {
   return { site, education, experience };
+}
+
+// Background the Ask guide uses that the pages don't show.
+export function getKnowledge() {
+  return { projects, notes };
 }
 
 export function formatDate(iso: string) {

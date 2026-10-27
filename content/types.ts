@@ -55,3 +55,11 @@ export type Education = {
   graduation: string;
   coursework: string[];
 };
+
+// Projects and facts the Ask guide knows about but the site doesn't show.
+export type Project = {
+  name: string;
+  summary: string;
+  stack: string[];
+  links: { label: string; href: string }[];
+};
