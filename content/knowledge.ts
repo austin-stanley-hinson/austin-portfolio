@@ -10,8 +10,8 @@ export const projects: Project[] = [
   {
     name: "PulseGrid",
     summary:
-      "Distributed infrastructure monitoring platform modeled on Datadog, Prometheus, and Grafana. Python host agents (psutil) send CPU, memory, disk, network, log, and heartbeat telemetry to a FastAPI ingestion API with Pydantic validation; events stream through Kafka to background workers that write history to PostgreSQL and latest state and heartbeats to Redis. A Next.js dashboard shows multi-agent health, trend charts, threshold alerts, and offline-agent detection. Runs locally with Docker Compose. Planned next: agent retries with backoff and local buffering, idempotency keys, agent auth, batched writes, and TimescaleDB-style retention.",
-    stack: ["Python", "FastAPI", "Kafka", "PostgreSQL", "Redis", "Next.js", "Docker Compose"],
+      "Infrastructure monitoring platform modeled on Datadog, built in June 2026 and still in progress (Efua Yankey built most of the Next.js dashboard). A Python agent (psutil) reports CPU and memory about every six seconds to a FastAPI backend with Pydantic validation, which stores history in PostgreSQL (SQLModel), tracks agent heartbeats (an agent is marked offline 30 seconds after its last report), raises CPU and memory threshold alerts with a five-minute cooldown and an open/acknowledged/resolved lifecycle, and caches the latest reading plus a 30-second-TTL heartbeat key in Redis. Runs locally with Docker Compose. In progress: moving ingestion onto Kafka with a separate worker, and a test environment of ten agents running as Docker containers on one machine. His writeup on the site, \"Building PulseGrid\", covers the bugs: a Postgres INTEGER overflow on memory bytes, CORS, a timezone bug that marked every agent offline, and a Redis outage that failed ingestion.",
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Next.js", "Docker Compose"],
     links: [{ label: "source", href: "https://github.com/austin-stanley-hinson/PulseGrid" }],
   },
   {

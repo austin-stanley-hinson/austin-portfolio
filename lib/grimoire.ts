@@ -48,6 +48,33 @@ export async function getWriteupBody(slug: string): Promise<string | null> {
   }
 }
 
+// Heading text -> anchor id, shared by the contents list and the rendered h2s.
+export function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+// The writeup's ## headings, skipping anything inside code fences.
+export function writeupSections(body: string) {
+  const sections: { id: string; title: string }[] = [];
+  let inFence = false;
+  for (const line of body.split("\n")) {
+    if (line.startsWith("```")) inFence = !inFence;
+    else if (!inFence && line.startsWith("## ")) {
+      const title = line.slice(3).replace(/[`*_]/g, "").trim();
+      sections.push({ id: slugify(title), title });
+    }
+  }
+  return sections;
+}
+
+export function readingMinutes(body: string) {
+  return Math.max(1, Math.round(body.split(/\s+/).length / 230));
+}
+
 export function getBookshelf() {
   return bookshelf;
 }

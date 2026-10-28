@@ -11,9 +11,10 @@ export const writeups: Writeup[] = [
     slug: "building-pulsegrid",
     title: "Building PulseGrid",
     summary:
-      "A distributed observability platform that detects node failures across 10 hosts in under 30 seconds: Python telemetry agents, a FastAPI backend, and Kafka, PostgreSQL, and Redis behind it.",
-    status: "being-written",
-    tags: ["FastAPI", "Kafka", "PostgreSQL", "Redis", "Docker"],
+      "An infrastructure monitor I'm building: a Python agent, a FastAPI backend, PostgreSQL and Redis, heartbeats and alerts, and the bugs that showed up where those pieces meet.",
+    status: "inscribed",
+    date: "2026-10-28",
+    tags: ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
     links: [{ label: "source", href: "https://github.com/austin-stanley-hinson/PulseGrid" }],
   },
   {

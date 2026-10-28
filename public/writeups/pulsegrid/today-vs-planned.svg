@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a443b"/>
+    </marker>
+  </defs>
+  <rect width="600" height="300" fill="#f7f2e7"/>
+
+  <!-- today -->
+  <text x="12" y="26" font-size="13" fill="#7d7466" letter-spacing="1.5">TODAY</text>
+  <g font-size="15" text-anchor="middle" fill="#1d1a16">
+    <rect x="12" y="52" width="100" height="48" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="62" y="81">agent</text>
+    <rect x="160" y="52" width="110" height="48" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="215" y="81">FastAPI</text>
+    <rect x="318" y="34" width="120" height="38" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="378" y="58">PostgreSQL</text>
+    <rect x="318" y="82" width="120" height="38" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="378" y="106">Redis</text>
+  </g>
+  <line x1="112" y1="76" x2="158" y2="76" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="270" y1="70" x2="316" y2="54" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="270" y1="82" x2="316" y2="100" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="456" y="70" font-size="13" fill="#4a443b">all inside the</text>
+  <text x="456" y="88" font-size="13" fill="#4a443b">agent's request</text>
+
+  <line x1="12" y1="146" x2="588" y2="146" stroke="#ddd3c0"/>
+
+  <!-- planned -->
+  <text x="12" y="176" font-size="13" fill="#7d7466" letter-spacing="1.5">PLANNED</text>
+  <g font-size="15" text-anchor="middle" fill="#1d1a16">
+    <rect x="12" y="202" width="86" height="48" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="55" y="231">agent</text>
+    <rect x="124" y="202" width="96" height="48" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="172" y="231">FastAPI</text>
+    <rect x="246" y="202" width="86" height="48" rx="5" fill="#f7f2e7" stroke="#a5492f" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <text x="289" y="231" fill="#a5492f">Kafka</text>
+    <rect x="358" y="202" width="86" height="48" rx="5" fill="#f7f2e7" stroke="#a5492f" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <text x="401" y="231" fill="#a5492f">worker</text>
+    <rect x="470" y="184" width="118" height="38" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="529" y="208">PostgreSQL</text>
+    <rect x="470" y="232" width="118" height="38" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.4"/>
+    <text x="529" y="256">Redis</text>
+  </g>
+  <line x1="98" y1="226" x2="122" y2="226" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="220" y1="226" x2="244" y2="226" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="332" y1="226" x2="356" y2="226" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="444" y1="220" x2="468" y2="205" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="444" y1="232" x2="468" y2="249" stroke="#4a443b" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="172" y="276" text-anchor="middle" font-size="13" fill="#4a443b">validate, publish</text>
+  <text x="401" y="276" text-anchor="middle" font-size="13" fill="#4a443b">store, alert</text>
+</svg>

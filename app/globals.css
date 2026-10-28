@@ -202,7 +202,7 @@ html{
 /* Writeup body typography for rendered markdown */
 .writeup-body > * + * { margin-top: 1.1em; }
 .writeup-body h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-cormorant), Georgia, serif;
   font-size: 1.85rem;
   line-height: 1.2;
   margin-top: 2.2em;
@@ -213,7 +213,7 @@ html{
   margin-top: 1.8em;
 }
 .writeup-body > p:first-of-type::first-letter {
-  font-family: var(--font-display);
+  font-family: var(--font-cormorant), Georgia, serif;
   float: left;
   font-size: 3.6em;
   line-height: 0.82;
@@ -230,7 +230,7 @@ html{
   font-style: italic;
 }
 .writeup-body code {
-  font-family: var(--font-mono);
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: 0.8em;
   background: var(--color-page-deep);
   padding: 0.1em 0.35em;
@@ -247,7 +247,38 @@ html{
 .writeup-body pre code { background: none; padding: 0; }
 .writeup-body img { border: 1px solid var(--color-rule); border-radius: 4px; }
 .writeup-body hr { border: 0; border-top: 1px solid var(--color-rule); margin: 2.5em 0; }
+.writeup-body h2 { scroll-margin-top: 1.5rem; }
+.writeup-body figure { margin: 2em 0; }
+.writeup-body figure img { display: block; width: 100%; height: auto; }
+.writeup-body figcaption {
+  margin-top: 0.6em;
+  font-size: 0.85em;
+  font-style: italic;
+  text-align: center;
+  color: var(--color-faded);
+}
 .writeup-body table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+
+/* Contents list above a long writeup */
+.writeup-contents ol {
+  margin-top: 0.4em;
+  list-style: decimal;
+  padding-left: 1.4em;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.writeup-contents li::marker { color: var(--color-seal); font-variant-numeric: oldstyle-nums; }
+
+/* Syntax colors for code blocks (rehype-highlight), in the page's inks */
+.writeup-body .hljs-comment,
+.writeup-body .hljs-meta { color: var(--color-faded); font-style: italic; }
+.writeup-body .hljs-keyword,
+.writeup-body .hljs-built_in,
+.writeup-body .hljs-attr { color: var(--color-seal-deep); }
+.writeup-body .hljs-string { color: #4f5b1f; }
+.writeup-body .hljs-number,
+.writeup-body .hljs-literal { color: #7a4f0e; }
+.writeup-body .hljs-title.function_ { color: var(--color-ink); font-weight: 600; }
 .writeup-body th, .writeup-body td { border-bottom: 1px solid var(--color-rule); padding: 0.4em 0.6em; text-align: left; }
 
 /* ---- Heading animations (components/Grimoire/HeadingMotion.tsx) ---- */

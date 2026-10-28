@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="560" height="330" fill="#f7f2e7"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">
+    <rect x="20" y="18" width="300" height="46" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.2"/>
+    <text x="36" y="46" fill="#1d1a16">1  session.add(metric)</text>
+    <rect x="20" y="78" width="300" height="46" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.2"/>
+    <text x="36" y="106" fill="#1d1a16">2  upsert_agent(...)</text>
+    <rect x="20" y="138" width="300" height="46" rx="5" fill="#efe7d6" stroke="#4a443b" stroke-width="1.2"/>
+    <text x="36" y="166" fill="#1d1a16">3  create_threshold_alerts(...)</text>
+    <rect x="20" y="198" width="300" height="46" rx="5" fill="#f7f2e7" stroke="#a5492f" stroke-width="2"/>
+    <text x="36" y="226" fill="#a5492f">4  cache_latest_metric(...)</text>
+    <rect x="20" y="258" width="300" height="46" rx="5" fill="#f7f2e7" stroke="#7d7466" stroke-width="1.2" stroke-dasharray="5 4"/>
+    <text x="36" y="286" fill="#7d7466">5  session.commit()</text>
+  </g>
+
+  <!-- notes -->
+  <line x1="340" y1="24" x2="340" y2="178" stroke="#7d7466" stroke-width="1"/>
+  <line x1="334" y1="24" x2="340" y2="24" stroke="#7d7466"/>
+  <line x1="334" y1="178" x2="340" y2="178" stroke="#7d7466"/>
+  <text x="354" y="96" font-size="14" fill="#4a443b">staged in one Postgres</text>
+  <text x="354" y="115" font-size="14" fill="#4a443b">transaction, not saved yet</text>
+
+  <text x="340" y="217" font-size="14" font-weight="600" fill="#a5492f">Redis down → raises</text>
+  <text x="340" y="236" font-size="14" fill="#a5492f">request returns 500</text>
+
+  <text x="340" y="277" font-size="14" fill="#7d7466">never reached:</text>
+  <text x="340" y="296" font-size="14" fill="#7d7466">steps 1–3 are thrown away</text>
+</svg>
